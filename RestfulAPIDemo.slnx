@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="RestfulAPIDemo.Tests/RestfulAPIDemo.Tests.csproj" />
+  <Project Path="RestfulAPIDemo/RestfulAPIDemo.csproj" />
+</Solution>

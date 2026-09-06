@@ -1,0 +1,40 @@
+@RestfulAPIDemo_HostAddress = http://localhost:5230
+
+### Best 10 stories by score
+GET {{RestfulAPIDemo_HostAddress}}/api/stories/best?n=10
+Accept: application/json
+
+### Just the single best story
+GET {{RestfulAPIDemo_HostAddress}}/api/stories/best?n=1
+Accept: application/json
+
+### Everything Hacker News lists (up to 500)
+GET {{RestfulAPIDemo_HostAddress}}/api/stories/best?n=500
+Accept: application/json
+
+### 400 - n must be at least 1
+GET {{RestfulAPIDemo_HostAddress}}/api/stories/best?n=0
+Accept: application/json
+
+### 400 - n must be an integer
+GET {{RestfulAPIDemo_HostAddress}}/api/stories/best?n=abc
+Accept: application/json
+
+### 400 - n is required
+GET {{RestfulAPIDemo_HostAddress}}/api/stories/best
+Accept: application/json
+
+### 405 - only GET (and HEAD) are allowed
+POST {{RestfulAPIDemo_HostAddress}}/api/stories/best?n=1
+Content-Type: application/json
+
+{}
+
+### Liveness
+GET {{RestfulAPIDemo_HostAddress}}/health
+
+### Readiness (503 until the first snapshot is loaded, "Degraded" when stale)
+GET {{RestfulAPIDemo_HostAddress}}/health/ready
+
+### OpenAPI document
+GET {{RestfulAPIDemo_HostAddress}}/openapi/v1.json

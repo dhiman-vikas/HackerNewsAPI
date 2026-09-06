@@ -15,7 +15,7 @@ public static class BestStoriesEndpoints
     private const long RetryAfterWhileRefreshing = 5;
 
     public static RouteHandlerBuilder MapBestStories(this IEndpointRouteBuilder endpoints) =>
-        endpoints.MapGet(Route, GetBestStoriesAsync)
+        endpoints.MapMethods(Route, [HttpMethods.Get, HttpMethods.Head], GetBestStoriesAsync)
             .WithName(EndpointName)
             .WithTags("Stories")
             .WithSummary("Get the best Hacker News stories")

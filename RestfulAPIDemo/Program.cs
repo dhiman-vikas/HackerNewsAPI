@@ -33,6 +33,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapOpenApi();
+app.UseSwaggerUI(options => options.SwaggerEndpoint("/openapi/v1.json", "RestfulAPIDemo v1"));
 app.MapBestStories();
 app.MapHealthChecks("/health", new HealthCheckOptions { Predicate = _ => false });
 app.MapHealthChecks("/health/ready", new HealthCheckOptions { Predicate = registration => registration.Tags.Contains("ready") });
